@@ -8,7 +8,7 @@ import io
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-from pdf_certificate_generator import create_certificate
+from pdf_creator import create_certificate
 from configuration import (
     info_path,
     num_of_hours_path,
