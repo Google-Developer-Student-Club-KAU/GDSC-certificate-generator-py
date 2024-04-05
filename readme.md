@@ -24,30 +24,36 @@ You can install these dependencies via pip:
 ```bash
 pip install pandas PyPDF2 reportlab arabic_reshaper python-bidi
 
+```
 
-# Usage
-- Prepare Your Data: Ensure your CSV files with participant information and the number of hours attended are structured correctly and placed in the csv_files directory. Your English names mapping (if necessary) should also be ready.
+## Usage
 
-- Setup Templates: Place your certificate templates in the templates directory. The script currently supports different templates based on the hours mentioned in the CSV.
+1. **Prepare Your Data:** Make sure your CSV files with participant information and the number of hours attended are structured correctly and placed in the `csv_files` directory. If necessary, ensure your English names mapping is also prepared.
 
-- Fonts: If handling Arabic names, ensure you have the NotoSansArabic-Bold.ttf font or any preferred Arabic font in the appropriate directory and update the fontpath variable accordingly. (its included in this repo so no need to download it)
+2. **Setup Templates:** Place your certificate templates in the `templates` directory. The script is currently designed to support different templates based on the number of hours mentioned in the participant data CSV.
 
-- Run the Script: Execute the script. It reads the data, determines the appropriate certificate template and name format, and generates a PDF certificate for each participant.
+3. **Fonts:** If dealing with Arabic names, make sure you have the `NotoSansArabic-Bold.ttf` font or any preferred Arabic font available in the appropriate directory, and update the `fontpath` variable accordingly. The necessary font is included in this repo, so there is no need to download it separately.
+
+4. **Run the Script:** Execute the script to read the data, determine the appropriate certificate template and name format, and generate a PDF certificate for each participant.
 
 ## Configuration
-- all of the config is in (config.py)
-- info_path, num_of_hours_path, and english_response_path: Paths to the CSV files containing participant information, hours attended, and English name mappings, respectively.
 
-- nine_template_path and six_template_path: Paths to the PDF templates for 9-hour and 6-hour certificates.
-- fontpath: Path to the font file used for Arabic names.
+All of the configuration is specified in `config.py`. This includes:
+- `info_path`, `num_of_hours_path`, and `english_response_path`: Paths to the CSV files containing participant information, hours attended, and English name mappings, respectively.
+- `nine_template_path` and `six_template_path`: Paths to the PDF templates for 9-hour and 6-hour certificates.
+- `fontpath`: Path to the font file used for Arabic names.
 
 ## Customization
-- You can customize the script by modifying the paths to match your directory structure, changing the font for Arabic names, or adjusting the logic to fit different certificate requirements (fitting the csv files to the code logic).
+
+You can customize the script by modifying the paths to match your directory structure, changing the font for Arabic names, or adjusting the logic to fit different certificate requirements. This may involve tailoring the CSV files to the code logic.
 
 ## Function Descriptions
-- is_arabic(text): Checks if the provided text contains more Arabic than English characters.
-- The main loop processes each participant, handling name language detection, template selection, and PDF certificate generation.
-- Ensure to review and adjust the script according to your specific needs and file structures.
 
-(IMPORTANT NOTE):
-    you should know that this script is not fully ready to be used on any csv file, it should be configured slightly to fit the data and the logic, but this represents the architecture to a final build
+- `is_arabic(text)`: Checks if the provided text contains more Arabic than English characters.
+- The main loop processes each participant, handling name language detection, template selection, and PDF certificate generation.
+
+## Important Note
+
+Please note that this script is not fully ready to be used on any CSV file out of the box. It may require slight configuration to fit your data and logic specifically. However, this provides the architecture for a final build.
+
+testing
